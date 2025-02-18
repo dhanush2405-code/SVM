@@ -32,7 +32,8 @@ def load_data():
             'Turbidity': np.random.uniform(0.1, 10.0, num_samples),
         }
         data['Quality'] = [
-            1 if (6.5 <= pH <= 8.5 and do >= 5 and bod <= 3 and nitrates < 40 and turb < 5) else 0
+            1 if (6.5 <= pH <= 8.5 and do >= 5 and bod <= 3 and nitrates < 40 and turb < 5) else
+            (0 if (pH < 6.0 or pH > 9.0 or do < 3 or bod > 8 or nitrates >= 50 or turb >= 10) else 2)  # Moderate (2)
             for pH, do, bod, nitrates, turb in zip(data['pH'], data['Dissolved Oxygen'], data['BOD'], data['Nitrates'], data['Turbidity'])
         ]
         df = pd.DataFrame(data)
