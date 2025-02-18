@@ -1,9 +1,6 @@
-pandas
-numpy
-seaborn
-matplotlib
-scikit-learn
-sklearn.model_selection
-sklearn.preprocessing
-sklearn.svm
-sklearn.metrics
+pandas==2.2.3
+numpy==2.2.3
+seaborn==0.13.2
+matplotlib==3.10.0
+scikit-learn==1.6.1
+
