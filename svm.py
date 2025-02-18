@@ -74,16 +74,3 @@ plt.ylabel("Actual")
 plt.title("Confusion Matrix")
 st.pyplot(fig)
 
-# User Input Prediction
-st.write("## Predict Water Quality")
-pH = st.slider("pH", 6.0, 9.0, 7.0)
-dissolved_oxygen = st.slider("Dissolved Oxygen", 3.0, 10.0, 6.0)
-bod = st.slider("BOD", 1.0, 8.0, 2.5)
-nitrates = st.slider("Nitrates", 0.1, 50.0, 20.0)
-turbidity = st.slider("Turbidity", 0.1, 10.0, 3.0)
-
-if st.button("Predict Quality"):
-    input_data = scaler.transform([[pH, dissolved_oxygen, bod, nitrates, turbidity]])
-    prediction = svm_model.predict(input_data)
-    result = "Safe" if prediction[0] == 1 else "Unsafe"
-    st.success(f"Predicted Water Quality: {result}")
